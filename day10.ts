@@ -162,13 +162,12 @@ let totalCycles = instructions.map(command => {
     return 0;
 }).reduce((a: number, b: number) => a + b, 0);
 
-console.clear();
-
 let currentInstruction = null;
 let instructionCounter = 0;
 let X = 1;
 
-let _history: { cycle: number, X: number }[] = [];
+let CRT: string[] = Array(40 * 6).fill('.');
+let totalSignalStrength: number = 0;
 
 for (let clock = 1; clock <= totalCycles; clock++) {
     // Get instruction if there is none being executed right now
@@ -180,11 +179,14 @@ for (let clock = 1; clock <= totalCycles; clock++) {
     // Decrease instruction counter
     instructionCounter -= 1;
 
-    // Store X in history
-    _history.push({
-        cycle: clock,
-        X
-    });
+    // Fill CRT pixels
+    let col = ((clock - 1) % 40);
+    CRT[clock - 1] = (col >= X - 1 && col <= X + 1) ? '@@' : '  ';
+
+    // Store signal strength
+    if((clock - 20) % 40 == 0) {
+        totalSignalStrength += X * clock;
+    }
 
     // Reset instruction
     if (instructionCounter == 0) {
@@ -195,36 +197,12 @@ for (let clock = 1; clock <= totalCycles; clock++) {
     }
 }
 
-let significantRecords = [
-    _history.find(h => h.cycle == 20),
-    _history.find(h => h.cycle == 60),
-    _history.find(h => h.cycle == 100),
-    _history.find(h => h.cycle == 140),
-    _history.find(h => h.cycle == 180),
-    _history.find(h => h.cycle == 220)
-]
-
-console.log(
-    significantRecords
-        .map((r: NonNullable<any>) => r.X * r.cycle)
-        .reduce((a, b) => a + b)
-)
-
-// Part 2
-
-let CRT: string[] = Array(40 * 6).fill('.');
-
-for(let element of _history) {
-    let col = ((element.cycle - 1) % 40);
-    let X = element.X;
-
-    CRT[element.cycle - 1] = (col >= X - 1 && col <= X + 1) ? '#' : '.';
-}
-
 let visualization = '\n';
 for(let i = 0; i < 6; i++) {
     let row = CRT.splice(0, 40);
     
     visualization += row.join('') + '\n';
 }
-console.log(visualization);
+
+console.clear();
+console.log(totalSignalStrength, visualization);
