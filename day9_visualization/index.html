@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #1C1C1C;
+            color: #ECEBE4;
+            width: 100vw;
+            text-align: center;
+            height: 5vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100vw;
+            height: 95vh;
+        }
+
+        #canvas {
+            width: calc(100vw);
+            height: 95vh;
+        }
+
+        #steps {
+            width: 250px;
+            height: 95vh;
+            border: 4px solid #1C1C1C;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #ECEBE4;
+            overflow-y: scroll;
+        }
+
+        #steps p {
+            margin: 0;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        #steps p.selected {
+            background-color: #FAFAFF;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>AoC Day 9</h1>
+    <div id="container">
+        <canvas id="canvas">
+
+        </canvas>
+        <div id="steps">
+            <p>R 4</p>
+            <p class="selected">U 4</p>
+            <p>L 3</p>
+        </div>
+    </div>
+
+    <script>var exports = {};</script>
+    <script src="out/day9.js"></script>
+    <script src="out/simulation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "day9_visualization",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "typescript": "^4.9.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "compile": "./node_modules/typescript/bin/tsc",
+    "watch": "nodemon --watch 'src/**/*' -e ts --exec 'npm run compile'"
+  },
+  "author": "",
+  "license": "MIT"
+}
