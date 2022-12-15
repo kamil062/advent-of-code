@@ -1,0 +1,39 @@
+{
+  "name": "advent-of-code-2022",
+  "version": "1.0.0",
+  "description": "Advent of Code 2022 solutions",
+  "main": "day01.ts",
+  "scripts": {
+    "day01": "nodemon --exec \"clear && tsc day01.ts && node day01.js\" --watch day01.ts",
+    "day02": "nodemon --exec \"clear && tsc day02.ts && node day02.js\" --watch day02.ts",
+    "day03": "nodemon --exec \"clear && tsc day03.ts && node day03.js\" --watch day03.ts",
+    "day04": "nodemon --exec \"clear && tsc day04.ts && node day04.js\" --watch day04.ts",
+    "day05": "nodemon --exec \"clear && tsc day05.ts && node day05.js\" --watch day05.ts",
+    "day06": "nodemon --exec \"clear && tsc day06.ts && node day06.js\" --watch day06.ts",
+    "day07": "nodemon --exec \"clear && tsc day07.ts && node day07.js\" --watch day07.ts",
+    "day08": "nodemon --exec \"clear && tsc day08.ts && node day08.js\" --watch day08.ts",
+    "day09": "nodemon --exec \"clear && tsc day09.ts && node day09.js\" --watch day09.ts",
+    "day10": "nodemon --exec \"clear && tsc day10.ts && node day10.js\" --watch day10.ts",
+    "day11": "nodemon --exec \"clear && tsc day11.ts && node day11.js\" --watch day11.ts",
+    "day12": "nodemon --exec \"clear && tsc day12.ts && node day12.js\" --watch day12.ts",
+    "day13": "nodemon --exec \"clear && tsc day13.ts && node day13.js\" --watch day13.ts",
+    "day14": "nodemon --exec \"clear && tsc day14.ts && node day14.js\" --watch day14.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamil062/advent-of-code-2022.git"
+  },
+  "keywords": [
+    "advent",
+    "of",
+    "code",
+    "2022",
+    "solutions"
+  ],
+  "author": "Kamil Piec <kamil062@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kamil062/advent-of-code-2022/issues"
+  },
+  "homepage": "https://github.com/kamil062/advent-of-code-2022#readme"
+}
