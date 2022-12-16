@@ -17,7 +17,8 @@
     "day11": "nodemon --exec \"clear && tsc day11.ts && node day11.js\" --watch day11.ts",
     "day12": "nodemon --exec \"clear && tsc day12.ts && node day12.js\" --watch day12.ts",
     "day13": "nodemon --exec \"clear && tsc day13.ts && node day13.js\" --watch day13.ts",
-    "day14": "nodemon --exec \"clear && tsc day14.ts && node day14.js\" --watch day14.ts"
+    "day14": "nodemon --exec \"clear && tsc day14.ts && node day14.js\" --watch day14.ts",
+    "day15": "nodemon --exec \"clear && tsc day15.ts --target \"ES2022\" && node --max-old-space-size=24000 day15.js\" --watch day15.ts"
   },
   "repository": {
     "type": "git",
