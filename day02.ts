@@ -1,3 +1,5 @@
+export {};
+
 let input = `A Y
 B X
 C Z`;

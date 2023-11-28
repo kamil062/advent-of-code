@@ -1,14 +1,14 @@
 const canvas = <NonNullable<HTMLCanvasElement>>document.querySelector('canvas');
 const ctx = <NonNullable<CanvasRenderingContext2D>>canvas.getContext('2d');
 
-const stepsContainer = document.querySelector("#steps");
+const stepsContainer: any | null = document.querySelector("#steps");
 
 function clearCanvas() {
     ctx.fillStyle = '#1C1C1C';
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 
-const drawSegment = (positionA, positionB) => {
+const drawSegment = (positionA: any, positionB: any) => {
     ctx.strokeStyle = '#DADDD8';
     ctx.lineWidth = 10;
 
@@ -18,7 +18,7 @@ const drawSegment = (positionA, positionB) => {
     ctx.stroke();
 }
 
-const drawLineStrip = (positions) => {
+const drawLineStrip = (positions: any) => {
     ctx.strokeStyle = '#DADDD8';
     ctx.lineWidth = 1;
     ctx.lineCap = 'round'

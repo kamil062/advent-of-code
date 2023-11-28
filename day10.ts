@@ -1,3 +1,5 @@
+export {};
+
 let input = `addx 2
 addx 3
 addx 1

@@ -1,3 +1,5 @@
+export {};
+
 let input = `Monkey 0:
   Starting items: 79, 98
   Operation: new = old * 19

@@ -1,3 +1,5 @@
+export {};
+
 let input = `Sabqponm
 abcryxxl
 accszExk

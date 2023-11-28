@@ -1,3 +1,5 @@
+export {};
+
 let input = `    [D]    
 [N] [C]    
 [Z] [M] [P]

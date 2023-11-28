@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Advent of Code 2022 solutions",
   "main": "day01.ts",
+  "type": "module",
   "scripts": {
     "day01": "nodemon --exec \"clear && tsc day01.ts && node day01.js\" --watch day01.ts",
     "day02": "nodemon --exec \"clear && tsc day02.ts && node day02.js\" --watch day02.ts",
@@ -18,7 +19,17 @@
     "day12": "nodemon --exec \"clear && tsc day12.ts && node day12.js\" --watch day12.ts",
     "day13": "nodemon --exec \"clear && tsc day13.ts && node day13.js\" --watch day13.ts",
     "day14": "nodemon --exec \"clear && tsc day14.ts && node day14.js\" --watch day14.ts",
-    "day15": "nodemon --exec \"clear && tsc day15.ts --target \"ES2022\" && node --max-old-space-size=24000 day15.js\" --watch day15.ts"
+    "day15": "nodemon --exec \"clear && tsc day15.ts --target \"ES2022\" && node --max-old-space-size=24000 day15.js\" --watch day15.ts",
+    "day16": "nodemon --exec \"clear && tsc day16.ts --target \"ES2022\" && node --max-old-space-size=2000 day16.js\" --watch day16.ts",
+    "day17": "nodemon --exec \"clear && tsc day17.ts --target \"ES2022\" && node --max-old-space-size=2000 day17.js\" --watch day17.ts",
+    "day18": "nodemon --exec \"clear && tsc day18.ts --target \"ES2022\" && node --max-old-space-size=2000 day18.js\" --watch day18.ts",
+    "day19": "nodemon --exec \"clear tsc day19.ts --target \"ES2022\" && node --max-old-space-size=2000 day19.js\" --watch day19.ts",
+    "day20": "nodemon --exec \"clear && tsc day20.ts --target \"ES2022\" && node --max-old-space-size=2000 day20.js\" --watch day20.ts",
+    "day21": "nodemon --exec \"clear && tsc day21.ts --target \"ES2022\" && node --max-old-space-size=2000 day21.js\" --watch day21.ts",
+    "day22": "nodemon --exec \"clear && tsc global.d.ts day22.ts --target \"ES2022\" --types \"node\" --moduleResolution node && node --max-old-space-size=2000 day22.js\" --watch day22.ts",
+    "day23": "nodemon --exec \"clear && tsc day23.ts --target \"ES2022\" && node --max-old-space-size=2000 day23.js\" --watch day23.ts",
+    "day24": "nodemon --exec \"clear && tsc day24.ts --target \"ES2022\" && node --max-old-space-size=2000 day24.js\" --watch day24.ts",
+    "day25": "nodemon --exec \"clear && tsc day25.ts --target \"ES2022\" && node --max-old-space-size=2000 day25.js\" --watch day25.ts"
   },
   "repository": {
     "type": "git",
@@ -36,5 +47,8 @@
   "bugs": {
     "url": "https://github.com/kamil062/advent-of-code-2022/issues"
   },
-  "homepage": "https://github.com/kamil062/advent-of-code-2022#readme"
+  "homepage": "https://github.com/kamil062/advent-of-code-2022#readme",
+  "devDependencies": {
+    "@types/node": "^18.11.17"
+  }
 }

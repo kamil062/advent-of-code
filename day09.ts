@@ -1,3 +1,5 @@
+export {};
+
 let input = `R 4
 U 4
 L 3

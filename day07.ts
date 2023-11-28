@@ -1,3 +1,5 @@
+export {};
+
 let input = `$ cd /
 $ ls
 dir a

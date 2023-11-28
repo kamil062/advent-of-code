@@ -1,3 +1,5 @@
+export {};
+
 let input = `vJrwpWtwJgWrhcsFMMfFFhFp
 jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
 PmmdzqPrVvPwwTWBwg
@@ -20,7 +22,7 @@ const task1 = (line: string) => {
     return characters.indexOf(commonCharacter) + 1;
 };
 
-const task2 = (line1: string, line2: string, line3: string) {
+const task2 = (line1: string, line2: string, line3: string) => {
     let items1 = new Set(line1.split(''));
     let items2 = new Set(line2.split(''));
     let items3 = new Set(line3.split(''));
