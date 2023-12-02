@@ -1,4 +1,4 @@
-const val input = """two1nine
+const val dayOneInput: String = """two1nine
 eightwothree
 abcone2threexyz
 xtwone3four
@@ -8,7 +8,7 @@ zoneight234
 
 fun main() {
     // Part 1
-    val part1 = input.split("\n").map {
+    val part1 = dayOneInput.split("\n").map {
         val firstDigit = it.firstOrNull { char -> char.isDigit() } ?: 0
         val lastDigit = it.lastOrNull { char -> char.isDigit() } ?: 0
 
@@ -29,7 +29,7 @@ fun main() {
         "eight" to "8",
         "nine" to "9"
     )
-    val part2 = input.split("\n").map {line ->
+    val part2 = dayOneInput.split("\n").map {line ->
         val flatList = numbersMapping.flatMap { listOf(it.key, it.value) }
 
         var firstDigit = line.findAnyOf(flatList)?.second ?: "0"
