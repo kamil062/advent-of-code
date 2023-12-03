@@ -50,5 +50,5 @@ fun main() {
     }
 
     println("part1: ${engineParts.sum()}")
-    println("part2: ${gears.filter { it.value.count() > 1 }.values.sumOf { subList -> subList.reduce { a, b -> a * b } }}")
+    println("part2: ${gears.filter { it.value.count() == 2 }.values.sumOf { subList -> subList.reduce { a, b -> a * b } }}")
 }

@@ -59,7 +59,7 @@
   console.log({
     part1: correctNumbers.reduce((a, b) => a + b),
     part2: Array.from(gears.values())
-      .filter((parts) => parts.length > 1)
+      .filter((parts) => parts.length == 2)
       .reduce((a, b) => a + b.reduce((c, d) => c * d), 0),
   });
 }
