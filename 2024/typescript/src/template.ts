@@ -1,0 +1,5 @@
+{
+    const data = ``;
+
+    console.clear();
+}
