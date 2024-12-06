@@ -13,7 +13,7 @@
     enum Cell {
         GUARD = '^',
         FLOOR = '.',
-        OBJECT = '#',
+        OBSTACLE = '#',
         VISITED = 'X'
     };
     enum Direction { UP, DOWN, LEFT, RIGHT };
@@ -26,56 +26,62 @@
             })
         });
 
+    const comparePositions = (pos1: number[], pos2: number[]) => pos1[0] == pos2[0] && pos1[1] == pos2[1]
+
     const simulateMoves = (map: Map) => {
-        let guardX = 0, guardY = 0,
-            direction = Direction.UP,
-            w = map[0].length, h = map.length;
-        const obstructions: number[][] = [];
+        const obstacles: number[][] = [];
         const visited: number[][] = [];
-        const corners: number[][] = [];
+
+        let guardX = 0;
+        let guardY = 0;
+        let direction = Direction.UP;
+        let w = map[0].length;
+        let h = map.length;
 
         map.forEach((row, y) => {
             row.forEach((cell, x) => {
-                if (cell == '^') {
+                if (cell == Cell.GUARD) {
                     guardX = x, guardY = y;
                     visited.push([guardX, guardY, direction]);
                 }
 
-                if (cell == '#') {
-                    obstructions.push([x, y]);
+                if (cell == Cell.OBSTACLE) {
+                    obstacles.push([x, y]);
                 }
             });
         });
 
         while (true) {
-            let dX = 0, dY = 0;
+            let dX = 0;
+            let dY = 0;
 
-            if (direction == Direction.UP) dY--;
-            if (direction == Direction.DOWN) dY++;
-            if (direction == Direction.LEFT) dX--;
-            if (direction == Direction.RIGHT) dX++;
-
-            const nextX = guardX + dX, nextY = guardY + dY;
-
-            if (nextX < 0 || nextX >= w || nextY < 0 || nextY >= h) {
-                break;
+            switch (direction) {
+                case Direction.UP: dY--; break;
+                case Direction.DOWN: dY++; break;
+                case Direction.LEFT: dX--; break;
+                case Direction.RIGHT: dX++; break;
             }
 
-            if (obstructions.find(o => (o[0] == nextX) && (o[1] == nextY))) {
+            const nextX = guardX + dX;
+            const nextY = guardY + dY;
+
+            if (nextX < 0 || nextX >= w || nextY < 0 || nextY >= h) break;
+
+            if (obstacles.find(o => comparePositions(o, [nextX, nextY]))) {
                 switch (direction) {
                     case Direction.UP: direction = Direction.RIGHT; break;
                     case Direction.RIGHT: direction = Direction.DOWN; break;
                     case Direction.DOWN: direction = Direction.LEFT; break;
                     case Direction.LEFT: direction = Direction.UP; break;
                 }
-                corners.push([guardX, guardY]);
             } else {
-                guardX = nextX, guardY = nextY;
+                guardX = nextX;
+                guardY = nextY;
 
-                const isNextPositionVisitedAndSameDirection = visited.find(o => (o[0] == guardX) && (o[1] == guardY) && o[2] == direction) != null;
-                if (isNextPositionVisitedAndSameDirection) return null;
+                const visitedPosition = visited.find(o => comparePositions(o, [guardX, guardY]));
+                if (visitedPosition?.[2] == direction) return null;
 
-                if (visited.find(o => (o[0] == guardX) && (o[1] == guardY)) == null) {
+                if (visitedPosition == null) {
                     visited.push([guardX, guardY, direction]);
                 }
             }
@@ -90,9 +96,9 @@
     console.log(
         simulation?.length,
         simulation
-            ?.filter((option, i) => {
+            ?.filter(option => {
                 const copy: Cell[][] = structuredClone(map);
-                copy[option[1]][option[0]] = Cell.OBJECT;
+                copy[option[1]][option[0]] = Cell.OBSTACLE;
 
                 return simulateMoves(copy) == null
             })
