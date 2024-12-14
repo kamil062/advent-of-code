@@ -49,12 +49,10 @@ p=9,5 v=-3,-3`;
         )
     }
 
-    const simulate = (robots: Robot[], steps: number) => {
-        for (let step = 0; step < steps; step++) {
-            for (let robot of robots) {
-                robot.x = (robot.x + areaSize.w + robot.vx) % areaSize.w;
-                robot.y = (robot.y + areaSize.h + robot.vy) % areaSize.h;
-            }
+    const simulateStep = (robots: Robot[]) => {
+        for (let robot of robots) {
+            robot.x = (robot.x + areaSize.w + robot.vx) % areaSize.w;
+            robot.y = (robot.y + areaSize.h + robot.vy) % areaSize.h;
         }
     }
 
@@ -90,8 +88,6 @@ p=9,5 v=-3,-3`;
             }
         }
 
-        console.log(quadrants);
-
         return quadrants.reduce((a, b) => a * b, 1);
     }
 
@@ -120,7 +116,7 @@ p=9,5 v=-3,-3`;
             console.log(safetyFactorAtHundreed, seconds)
             minDistance = distance;
         }
-        simulate(robots, 1);
+        simulateStep(robots);
         seconds++;
 
         if (seconds == 100) {
